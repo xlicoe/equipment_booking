@@ -27,6 +27,7 @@
         .calendar-container iframe {
             width: 100%;
             height: 100%;
+            max-width: 800px;
             border: none;
         }
         /* Custom scrollbar for better look */
@@ -44,13 +45,11 @@
 </head>
 <body class="bg-slate-50 min-h-screen text-slate-800 font-sans">
 
-    
     <!-- Header / Navigation -->
     <nav class="bg-white border-b-4 border-coe-crimson sticky top-0 z-50 shadow-sm">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-20 items-center">
                 <div class="flex items-center space-x-4">
-                    <!-- Coe College Logo Inserted Here -->
                     <div class="flex-shrink-0">
                         <img src="webdev/Coe_Horz.png" alt="Coe College Logo" class="h-12 w-auto">
                     </div>
@@ -65,31 +64,33 @@
             </div>
         </div>
     </nav>    
-   
 
-    <main class="max-w-6xl mx-auto px-4 py-12 sm:px-6 lg:px-8">
+    <main class="max-w-7xl mx-auto px-4 py-12 sm:px-6 lg:px-8">
         
         <!-- Hero Section -->
         <header class="text-center mb-16">
             <h1 class="text-4xl md:text-4xl font-extrabold text-slate-900 mb-4 uppercase">Instrument Scheduling</h1>
             <h1 class="text-2xl md:text-3xl font-bold text-slate-900 mb-4">Location: Stuart 154</h1>
             <div class="h-1 w-24 bg-coe-gold mx-auto mb-6"></div>
-            <p class="text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
-                Welcome to this lab booking site. Reserve your equipment sessions below.
-            </p>
-            <p class="text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
-                Please note that training for each device is required before use.
-            </p>
-            <p class="text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
-                To get off-hour access (non 9-5), please contact admin.
-            </p>
+            <div class="space-y-2">
+                <p class="text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
+                    Welcome to the lab booking site. Reserve your equipment sessions below.
+                </p>
+                <p class="text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed font-semibold">
+                    Note: Training for each device is required before use.
+                </p>
+                <p class="text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
+                    For off-hour access (non 9-5), please contact the admin.
+                </p>
+            </div>
         </header>
 
-        <div class="grid lg:grid-cols-4 gap-8 mb-16">
+        <!-- Main Layout Grid: Changed from lg: to md: to prevent premature stacking -->
+        <div class="grid md:grid-cols-4 gap-8 mb-16">
             
             <!-- Sidebar -->
-            <aside id="rules" class="lg:col-span-1">
-                <div class="sticky top-28 space-y-6">
+            <aside id="rules" class="md:col-span-1 order-2 md:order-1">
+                <div class="md:sticky md:top-28 space-y-6">
                     <!-- Sidebar: General Rules -->
                     <div class="glass-card p-6 rounded-2xl shadow-sm border-t-4 border-t-coe-gold">
                         <h2 class="text-lg font-black mb-4 flex items-center text-coe-crimson uppercase">
@@ -105,7 +106,7 @@
                             </li>
                             <li class="flex items-start">
                                 <span class="text-coe-crimson mr-2 font-black">•</span>
-                                Be nice to each other. Clean equipment after every session.
+                                Be nice. Clean equipment after every session.
                             </li>
                             <li class="flex items-start">
                                 <span class="text-coe-crimson mr-2 font-black">•</span>
@@ -120,75 +121,58 @@
                         </div>
                     </div>
 
-
                     <!-- Sidebar: Manuals & Instructions -->
                     <div class="glass-card p-6 rounded-2xl shadow-sm border-t-4 border-t-coe-gold">
                         <h2 class="text-lg font-black mb-4 flex items-center text-coe-crimson uppercase">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-coe-gold" viewBox="0 0 20 20" fill="currentColor">
                                 <path d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10.392A7.968 7.968 0 015.5 14c1.255 0 2.443.29 3.5.804v-10.392zm2 0V15.196a7.968 7.968 0 013.5-.804c1.255 0 2.443.29 3.5.804V4.804A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804z" />
                             </svg>
-                            Manuals & Instructions
+                            Manuals & SOPs
                         </h2>
                         
                         <div class="space-y-5">
-                            <!-- Subsection: Laser Cutter -->
                             <div>
                                 <h3 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-2 border-b border-slate-100 pb-1">Laser Cutter</h3>
                                 <ul class="space-y-2 text-sm">
                                     <li>
-                                        <a href="manuals/gweikecloudBasic.pdf" class="text-slate-600 hover:text-coe-crimson flex items-center group transition-all">
-                                            <span class="bg-slate-100 p-1.5 rounded mr-2 group-hover:bg-coe-crimson group-hover:text-white transition-colors text-[9px] font-bold">PDF</span>
-                                            Gweike laser cutter user manual
+                                        <a href="manuals/gweikecloudBasic.pdf" class="text-slate-600 hover:text-coe-crimson flex items-center group transition-all py-1">
+                                            <span class="bg-slate-100 p-1 rounded mr-2 group-hover:bg-coe-crimson group-hover:text-white text-[9px] font-bold">PDF</span>
+                                            Gweike User Manual
                                         </a>
-
-                                        <a href="manuals/LightBurn2.0.pdf" class="text-slate-600 hover:text-coe-crimson flex items-center group transition-all">
-                                            <span class="bg-slate-100 p-1.5 rounded mr-2 group-hover:bg-coe-crimson group-hover:text-white transition-colors text-[9px] font-bold">PDF</span>
-                                            LightBurn manual
+                                        <a href="manuals/LightBurn2.0.pdf" class="text-slate-600 hover:text-coe-crimson flex items-center group transition-all py-1">
+                                            <span class="bg-slate-100 p-1 rounded mr-2 group-hover:bg-coe-crimson group-hover:text-white text-[9px] font-bold">PDF</span>
+                                            LightBurn Manual
                                         </a>
-                                        
-                                        <a href="manuals/Recommended_specs.pdf" class="text-slate-600 hover:text-coe-crimson flex items-center group transition-all">
-                                            <span class="bg-slate-100 p-1.5 rounded mr-2 group-hover:bg-coe-crimson group-hover:text-white transition-colors text-[9px] font-bold">PDF</span>
-                                            Gweike material setting
+                                        <a href="manuals/Recommended_specs.pdf" class="text-slate-600 hover:text-coe-crimson flex items-center group transition-all py-1">
+                                            <span class="bg-slate-100 p-1 rounded mr-2 group-hover:bg-coe-crimson group-hover:text-white text-[9px] font-bold">PDF</span>
+                                            Material Settings
                                         </a>
-                                        
-                                        
                                     </li>
                                 </ul>
                             </div>
 
-                            <!-- Subsection: 3D Printer 1 -->
                             <div>
-                                <h3 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-2 border-b border-slate-100 pb-1">Phrozen Resin 3D Printer</h3>
+                                <h3 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-2 border-b border-slate-100 pb-1">3D Printers</h3>
                                 <ul class="space-y-2 text-sm">
                                     <li>
-                                        <a href="#" class="text-slate-600 hover:text-coe-crimson flex items-center group transition-all">
-                                            <span class="bg-slate-100 p-1.5 rounded mr-2 group-hover:bg-coe-crimson group-hover:text-white transition-colors text-[9px] font-bold">PDF</span>
-                                            Ultimaker User Guide
+                                        <a href="#" class="text-slate-600 hover:text-coe-crimson flex items-center group transition-all py-1">
+                                            <span class="bg-slate-100 p-1 rounded mr-2 group-hover:bg-coe-crimson group-hover:text-white text-[9px] font-bold">PDF</span>
+                                            Phrozen Resin Guide
+                                        </a>
+                                        <a href="#" class="text-slate-600 hover:text-coe-crimson flex items-center group transition-all py-1">
+                                            <span class="bg-slate-100 p-1 rounded mr-2 group-hover:bg-coe-crimson group-hover:text-white text-[9px] font-bold">PDF</span>
+                                            ELEGOO Resin Guide
                                         </a>
                                     </li>
                                 </ul>
                             </div>
 
-                            <!-- Subsection: 3D Printer 2 -->
-                            <div>
-                                <h3 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-2 border-b border-slate-100 pb-1">ELEGOO Resin 3D Printer</h3>
-                                <ul class="space-y-2 text-sm">
-                                    <li>
-                                        <a href="#" class="text-slate-600 hover:text-coe-crimson flex items-center group transition-all">
-                                            <span class="bg-slate-100 p-1.5 rounded mr-2 group-hover:bg-coe-crimson group-hover:text-white transition-colors text-[9px] font-bold">PDF</span>
-                                            Formlabs Workflow
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-
-                            <!-- Subsection: Micromiller -->
                             <div>
                                 <h3 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-2 border-b border-slate-100 pb-1">Micromiller</h3>
                                 <ul class="space-y-2 text-sm">
                                     <li>
-                                        <a href="#" class="text-slate-600 hover:text-coe-crimson flex items-center group transition-all">
-                                            <span class="bg-slate-100 p-1.5 rounded mr-2 group-hover:bg-coe-crimson group-hover:text-white transition-colors text-[9px] font-bold">PDF</span>
+                                        <a href="#" class="text-slate-600 hover:text-coe-crimson flex items-center group transition-all py-1">
+                                            <span class="bg-slate-100 p-1 rounded mr-2 group-hover:bg-coe-crimson group-hover:text-white text-[9px] font-bold">PDF</span>
                                             Operating Manual
                                         </a>
                                     </li>
@@ -199,86 +183,76 @@
                 </div>
             </aside>
             
-            <!-- Main Content: Instrument Grid -->
-            <div id="instruments" class="lg:col-span-3 space-y-12">
+            <!-- Main Content Area -->
+            <div id="instruments" class="md:col-span-3 space-y-12 order-1 md:order-2">
                 
                 <!-- Instrument 1: Laser Cutter -->
                 <div class="bg-white p-6 md:p-8 rounded-2xl shadow-md border border-slate-200">
-                    <div class="md:flex md:items-center md:justify-between mb-6">
+                    <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-6 gap-4">
                         <div>
                             <h2 class="text-2xl font-black text-coe-crimson uppercase tracking-tight">Laser Cutter</h2>
                             <p class="text-slate-500 font-medium italic">Gweike cloud 50W CO2 Laser Cutter & Engraver</p>
                         </div>
-                        <!-- PASTE LASER CUTTER APPOINTMENT SCHEDULE LINK IN HREF BELOW -->
-                          <a href="https://calendar.app.google/HwHm6nwBmX9eNVdC6" target="_blank" class="mt-4 md:mt-0 inline-flex items-center bg-coe-crimson hover:bg-coe-dark-crimson text-white font-bold py-2.5 px-6 rounded-lg transition-all shadow-md active:scale-95 group">
-                            <span>Book a 9-5 Time Slot</span>
+                        <a href="https://calendar.app.google/HwHm6nwBmX9eNVdC6" target="_blank" class="inline-flex items-center justify-center bg-coe-crimson hover:bg-coe-dark-crimson text-white font-bold py-2.5 px-6 rounded-lg transition-all shadow-md active:scale-95 group shrink-0">
+                            <span>Book 9-5 Time Slot</span>
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
                             </svg>
                         </a>
                     </div>
-                    <div class="calendar-container h-[600px] bg-slate-50 rounded-xl overflow-hidden border border-slate-200 flex justify-center">
-                       <iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FChicago&showCalendars=0&mode=WEEK&src=Y18wN2Q1ZmVmZDMyMjg5YzJmZDRkNzRlMTkxODRkMjdlMTZkNDhmMDdkYWRiNjAyZGFlOTNmYTRhNmYyODkyZTUzQGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20&color=%23616161" style="border-width:0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+                    <div class="calendar-container h-[600px] bg-slate-50 rounded-xl overflow-hidden border border-slate-200 flex justify-center items-center">
+                       <iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FChicago&showCalendars=0&mode=WEEK&src=Y18wN2Q1ZmVmZDMyMjg5YzJmZDRkNzRlMTkxODRkMjdlMTZkNDhmMDdkYWRiNjAyZGFlOTNmYTRhNmYyODkyZTUzQGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20&color=%23616161" scrolling="no"></iframe>
                     </div>
                 </div>
 
                 <!-- Instrument 2: 3D Printer #1 -->
                 <div class="bg-white p-6 md:p-8 rounded-2xl shadow-md border border-slate-200">
-                    <div class="md:flex md:items-center md:justify-between mb-6">
+                    <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-6 gap-4">
                         <div>
                             <h2 class="text-2xl font-black text-coe-crimson uppercase tracking-tight">Phrozen Resin 3D Printer</h2>
                             <p class="text-slate-500 font-medium italic">Phrozen Sonic Mini 8K 7.1" LCD</p>
                         </div>
-                        <!-- PASTE 3D PRINTER 1 APPOINTMENT SCHEDULE LINK IN HREF BELOW -->
-                       <a href="https://calendar.app.google/YQfhyqWZ8Ys7sPSa6" target="_blank" class="mt-4 md:mt-0 inline-flex items-center bg-coe-crimson hover:bg-coe-dark-crimson text-white font-bold py-2.5 px-6 rounded-lg transition-all shadow-md active:scale-95 group">
-                            <span>Book a 9-5 Time Slot</span>
+                       <a href="https://calendar.app.google/YQfhyqWZ8Ys7sPSa6" target="_blank" class="inline-flex items-center justify-center bg-coe-crimson hover:bg-coe-dark-crimson text-white font-bold py-2.5 px-6 rounded-lg transition-all shadow-md active:scale-95 group shrink-0">
+                            <span>Book 9-5 Time Slot</span>
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
                             </svg>
                         </a>
                     </div>
-                    <div class="calendar-container h-[600px] bg-slate-50 rounded-xl overflow-hidden border border-slate-200 flex justify-center">
-                       <!-- PASTE Google Calendar iframe LINK IN HREF BELOW -->
-                        <iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FChicago&showCalendars=0&mode=WEEK&src=Y19kZjFkNGNjYjUwOWQwYzBhZjcwOWJlYjdlNjU5OWIyNjE2YjY2NDVmZTU5YmFkZDhkMzQyMTg1YjZjMmZkNjcwQGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20&color=%23616161" style="border-width:0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+                    <div class="calendar-container h-[600px] bg-slate-50 rounded-xl overflow-hidden border border-slate-200 flex justify-center items-center">
+                        <iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FChicago&showCalendars=0&mode=WEEK&src=Y19kZjFkNGNjYjUwOWQwYzBhZjcwOWJlYjdlNjU5OWIyNjE2YjY2NDVmZTU5YmFkZDhkMzQyMTg1YjZjMmZkNjcwQGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20&color=%23616161" scrolling="no"></iframe>
                     </div>
                 </div>
 
                 <!-- Instrument 3: 3D Printer #2 -->
                 <div class="bg-white p-6 md:p-8 rounded-2xl shadow-md border border-slate-200">
-                    <div class="md:flex md:items-center md:justify-between mb-6">
+                    <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-6 gap-4">
                         <div>
                             <h2 class="text-2xl font-black text-coe-crimson uppercase tracking-tight">ELEGOO Resin 3D Printer</h2>
                             <p class="text-slate-500 font-medium italic">ELEGOO Mars 4 DLP</p>
                         </div>
-                        <!-- PASTE 3D PRINTER 2 APPOINTMENT SCHEDULE LINK IN HREF BELOW -->
-                        <a href="https://calendar.app.google/64i9gYKfmHw6cTdX9" target="_blank" class="mt-4 md:mt-0 inline-flex items-center bg-coe-crimson hover:bg-coe-dark-crimson text-white font-bold py-2.5 px-6 rounded-lg transition-all shadow-md active:scale-95 group">
-                            <span>Book a 9-5 Time Slot</span>
+                        <a href="https://calendar.app.google/64i9gYKfmHw6cTdX9" target="_blank" class="inline-flex items-center justify-center bg-coe-crimson hover:bg-coe-dark-crimson text-white font-bold py-2.5 px-6 rounded-lg transition-all shadow-md active:scale-95 group shrink-0">
+                            <span>Book 9-5 Time Slot</span>
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
                             </svg>
                         </a>
                     </div>
-                    <div class="calendar-container h-[600px] bg-slate-50 rounded-xl overflow-hidden border border-slate-200 flex justify-center">
-                        
-                           <iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FChicago&showCalendars=0&mode=WEEK&src=Y19kZTc2MzAwNjMwMDkwNjY4MTFiOWMzODFjMGE3MjAxZTBjZjJlNmI2Y2RiNDhiYWJlZDhjYzNhOGQ4MjYwMjMzQGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20&color=%23616161" style="border-width:0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
-                       
+                    <div class="calendar-container h-[600px] bg-slate-50 rounded-xl overflow-hidden border border-slate-200 flex justify-center items-center">
+                        <iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FChicago&showCalendars=0&mode=WEEK&src=Y19kZTc2MzAwNjMwMDkwNjY4MTFiOWMzODFjMGE3MjAxZTBjZjJlNmI2Y2RiNDhiYWJlZDhjYzNhOGQ4MjYwMjMzQGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20&color=%23616161" scrolling="no"></iframe>
                     </div>
                 </div>
 
                 <!-- Instrument 4: Micromiller -->
                 <div class="bg-white p-6 md:p-8 rounded-2xl shadow-md border border-slate-200">
-                    <div class="md:flex md:items-center md:justify-between mb-6">
-                        <div>
-                            <h2 class="text-2xl font-black text-coe-crimson uppercase tracking-tight">Micromiller</h2>
-                            <p class="text-slate-500 font-medium italic">specs inc</p>
-                        </div>
-                        <!-- PASTE MICROMILLER APPOINTMENT SCHEDULE LINK IN HREF BELOW -->
-                        
+                    <div class="mb-6">
+                        <h2 class="text-2xl font-black text-coe-crimson uppercase tracking-tight">Micromiller</h2>
+                        <p class="text-slate-500 font-medium italic">Technical specifications coming soon</p>
                     </div>
-                    <div class="calendar-container aspect-video md:h-96 bg-slate-50 rounded-xl overflow-hidden border border-slate-200 flex items-center justify-center">
+                    <div class="calendar-container h-[400px] bg-slate-100 rounded-xl overflow-hidden border border-slate-200 flex items-center justify-center">
                         <div class="text-center p-4">
                             <p class="text-slate-400 font-bold uppercase text-xs tracking-widest mb-2">Live Availability</p>
-                            <p class="text-slate-300 italic text-sm">Paste Micromiller Embed Iframe Here</p>
+                            <p class="text-slate-300 italic text-sm text-center">Calendar embed and booking schedule<br>will be integrated once the machine is commissioned.</p>
                         </div>
                     </div>
                 </div>
